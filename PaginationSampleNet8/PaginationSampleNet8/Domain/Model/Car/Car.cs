@@ -1,6 +1,6 @@
-﻿namespace PaginationSampleNet8.Repository.Car
+﻿namespace PaginationSampleNet8.Model.Cars
 {
-    public class Cars
+    public class Car
     {
         public int Id { get; set; }
         public string? Brand { get; set; }

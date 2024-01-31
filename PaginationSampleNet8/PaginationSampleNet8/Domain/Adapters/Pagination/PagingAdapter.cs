@@ -1,4 +1,4 @@
-﻿namespace PaginationSampleNet8.Models.Pagination
+﻿namespace PaginationSampleNet8.Adapter.Pagination
 {
     public class PagingParameters
     {
@@ -6,6 +6,7 @@
 
         public int PageNumber { get; set; } = 1;
         public int MaxPageSize { get; set; } = 50;
+        public bool All { get; set; } = false;
         private int _PageSize { get; set; } = 10;
         public int PageSize
         {
@@ -19,7 +20,7 @@
 
     }
 
-    public class PagedList<T>
+    public class PagedAdapter<T>
     {
 
         private int _CurrentPage { get; set; } = 1;
@@ -49,12 +50,12 @@
 
         public List<T> Data { get; set; } = new List<T>();
 
-        public PagedList(IQueryable<T> source, int pageNumber, int pageSize)
+        public PagedAdapter(IQueryable<T> source, PagingParameters pagingParameters)
         {
             TotalCount = source.Count();
-            PageSize = pageSize;
-            TotalPages = (int)Math.Ceiling(TotalCount / (double)pageSize);
-            CurrentPage = pageNumber;
+            PageSize = (pagingParameters.All) ? TotalCount : pagingParameters.PageSize;
+            TotalPages = (int)Math.Ceiling(TotalCount / (double)PageSize);
+            CurrentPage = pagingParameters.PageNumber;
             Data.AddRange(source.Skip((CurrentPage - 1) * PageSize).Take(PageSize).ToList());
         }
 
