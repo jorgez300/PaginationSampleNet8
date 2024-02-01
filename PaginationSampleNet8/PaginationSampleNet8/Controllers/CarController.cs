@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PaginationSampleNet8.Adapter.Pagination;
+using PaginationSampleNet8.Helper.Pagination;
 using PaginationSampleNet8.Model.Cars;
 using PaginationSampleNet8.Services.Cars;
 

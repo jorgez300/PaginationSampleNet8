@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PaginationSampleNet8.Adapter.Pagination;
+using PaginationSampleNet8.Helper.Pagination;
 using PaginationSampleNet8.Model.Users;
 using PaginationSampleNet8.Repository.Users;
 

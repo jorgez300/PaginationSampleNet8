@@ -1,6 +1,6 @@
 ﻿using Bogus;
 using PaginationSampleNet8.Model.Cars;
-using PaginationSampleNet8.Adapter.Pagination;
+using PaginationSampleNet8.Helper.Pagination;
 using PaginationSampleNet8.Domain.Data;
 using Microsoft.EntityFrameworkCore;
 

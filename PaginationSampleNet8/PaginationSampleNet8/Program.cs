@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using PaginationSampleNet8.Domain.Adapter.Cache;
+using PaginationSampleNet8.Domain.Helper.Cache;
+using PaginationSampleNet8.Domain.Clients.Pokemons;
 using PaginationSampleNet8.Domain.Data;
+using PaginationSampleNet8.Domain.Services.Pokemons;
 using PaginationSampleNet8.Repository.Users;
 using PaginationSampleNet8.Services.Cars;
 
@@ -18,7 +20,9 @@ builder.Services.AddMemoryCache();
 
 builder.Services.AddScoped<CarService>();
 builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<CacheAdapter>();
+builder.Services.AddScoped<CacheHelper>();
+builder.Services.AddScoped<PokemonClient>();
+builder.Services.AddScoped<PokemonService>();
 
 
 
@@ -44,11 +48,13 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-    app.UseSwagger();
-    app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
+
 //if (app.Environment.IsDevelopment())
 //{
-
+//app.UseSwagger();
+//app.UseSwaggerUI();
 //}
 
 app.Run();

@@ -1,4 +1,4 @@
-﻿namespace PaginationSampleNet8.Adapter.Pagination
+﻿namespace PaginationSampleNet8.Helper.Pagination
 {
     public class PagingParameters
     {

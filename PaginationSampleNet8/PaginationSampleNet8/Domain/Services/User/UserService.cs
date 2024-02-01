@@ -1,6 +1,6 @@
 ﻿using Bogus;
 using Microsoft.EntityFrameworkCore;
-using PaginationSampleNet8.Domain.Adapter.Cache;
+using PaginationSampleNet8.Domain.Helper.Cache;
 using PaginationSampleNet8.Domain.Data;
 using PaginationSampleNet8.Model.Users;
 
@@ -9,9 +9,9 @@ namespace PaginationSampleNet8.Repository.Users
     public class UserService
     {
         protected readonly WebApiDbContext _webApiDbContext;
-        protected readonly CacheAdapter _userCache;
+        protected readonly CacheHelper _userCache;
         private const string CacheUserGetAllKey = "CacheUserGetAllKey";
-        public UserService(WebApiDbContext webApiDbContext, CacheAdapter userCache)
+        public UserService(WebApiDbContext webApiDbContext, CacheHelper userCache)
         {
             _webApiDbContext = webApiDbContext;
             _userCache = userCache;
